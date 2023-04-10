@@ -1,0 +1,7 @@
+query GetLocations {
+  locations {
+    results {
+      ...LocationExtraFields
+    }
+  }
+}

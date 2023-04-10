@@ -1,0 +1,13 @@
+query Characters {
+  characters {
+    results {
+     ...CharacterFields
+    }
+  }
+}
+
+query GetCharacterItem($characterId: ID!) {
+    character(id: $characterId) {
+        ...CharacterExtraFields
+    }
+}

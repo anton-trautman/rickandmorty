@@ -1,0 +1,49 @@
+fragment CharacterFields on Character {
+  created
+  species
+  id
+  image
+  gender
+  name
+  status
+}
+
+fragment LocationFields on Location {
+  name
+  created
+  dimension
+  id
+  type
+}
+fragment LocationExtraFields on Location {
+  ...LocationFields
+  residents {
+    ...ResidentFields
+  }
+}
+
+fragment EpisodeFields on Episode {
+  id
+  episode
+  name
+}
+
+fragment ResidentFields on Character {
+  id
+  status
+  name
+  image
+}
+
+fragment CharacterExtraFields on Character {
+  ...CharacterFields
+  #  episode {
+  #    ...EpisodeFields
+  #  }
+  origin {
+    ...LocationFields
+    residents {
+      ...ResidentFields
+    }
+  }
+}
